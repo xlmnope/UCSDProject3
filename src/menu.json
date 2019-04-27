@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "name": "Burger1",
+    "image": "",
+    "description": 0,
+    "price": 5.99
+  },
+  {
+    "id": 2,
+    "name": "Burger2",
+    "image": "sesemestreet/3.png",
+    "price": 5.99
+  },
+  {
+    "id": 3,
+    "name": "Burger3",
+    "image": "sesemestreet/1.png",
+    "price": 5.99
+  },
+  {
+    "id": 4,
+    "name": "Burger4",
+    "image": "",
+    "price": 5.99
+  },
+  {
+    "id": 5,
+    "name": "Burger5",
+    "image": "",
+    "price": 5.99
+  },
+  {
+    "id": 6,
+    "name": "Burger6",
+    "image": "",
+    "price": 5.99
+   
+  },
+  {
+    "id": 7,
+    "name": "Burger7",
+    "image": "",
+    "price": 5.99
+  },
+  {
+    "id": 8,
+    "name": "Burger8",
+    "image": "",
+    "price": 5.99
+  },
+  {
+    "id": 9,
+    "name": "Burger9",
+    "image": "",
+    "price": 5.99
+  },
+  {
+    "id": 10,
+    "name": "Burger10",
+    "image": "",
+    "price": 5.99
+  },
+  {
+    "id": 11,
+    "name": "Burger11",
+    "image": "",
+    "price": 5.99
+   
+  },
+  {
+    "id": 12,
+    "name": "Burger12",
+    "image": "",
+    "price": 5.99
+  }
+]
