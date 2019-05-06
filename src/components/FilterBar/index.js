@@ -5,7 +5,7 @@ import "./filterbar.js"
 
 function FilterBar(props) {
   return <div>
-  <nav className="navbar navbar-expand-md navbar-light bg-light filterbar" id="navbar">
+  <nav className="navbar navbar-expand-md navbar-light filterbar" id="navbar">
   <div className="container">
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
         <span className="navbar-toggler-icon"></span>

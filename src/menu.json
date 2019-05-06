@@ -2,42 +2,42 @@
   {
     "id": 1,
     "name": "Full Metal Burger",
-    "image": "",
+    "image": "images/fullmetal2.png",
     "description": "Fresh, hand-made, quarter-pound ground beef patty with melted cheese and lettuce, tomato, onion",
     "price": 8.00
   },
   {
     "id": 2,
     "name": "Black Bean Society Veggie Burger",
-    "image": "sesemestreet/3.png",
+    "image": "images/blackbean.png",
     "description": "100% non-beef (black bean) patty with melted cheese and lettuce, tomato, onion",
     "price": 10.00
   },
   {
     "id": 3,
     "name": "Legion of Shrooms Burgers",
-    "image": "sesemestreet/1.png",
+    "image": "images/legionofshrooms.jpg",
     "description": "Fresh, hand-made, quarter-pound ground beef patty with two slices of melted swiss over grilled mushrooms and carmelized onions, served with creamy dijon mustard on the bun",
     "price": 11.00
   },
   {
     "id": 4,
     "name": "Rest in Pesto (RIP) Burger",
-    "image": "",
+    "image": "images/restinpesto.jpg",
     "description": "Fresh, hand-made, quarter-pound ground beef patty, and melted mozzarella over two fresh tomato slices and marinara sauce, served with basil pesto spread on the bun",
     "price": 12.00
   },
   {
     "id": 5,
     "name": "South of Heaven Burger",
-    "image": "",
+    "image": "images/south.png",
     "description": "Two fresh, hand-made, quarter-pound ground beef patties (1/2 half pound total), two slices of spicy cheddar cheese infused with buffalo sauce and hot peppers, hellfire pickles, pickled jalapeno slices, grilled onions, bacon, and sriracho mayo",
     "price": 14.00
   },
   {
     "id": 6,
     "name": "Getcha Pull'd Chicken",
-    "image": "",
+    "image": "images/getchapulledchicken.jpg",
     "description": "Slow-cooked shredded chicken marinated in salsa, served with melted shredded cheese and lettuce, tomato, onion on a bun",
     "price": 8.00
    
@@ -45,7 +45,7 @@
   {
     "id": 7,
     "name": "Nachos by Thy Name",
-    "image": "",
+    "image": "images/nachos.jpg",
     "description": "Tortilla chips smothered in melted, shredded cheese and getcha pull'd chicken, topped with a blended guacamole and sour cream sauce. Salsa, jalapeños, and hot peppers served on the side.",
     "price": 9.00
   }]

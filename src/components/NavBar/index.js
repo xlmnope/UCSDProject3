@@ -3,7 +3,7 @@ import "./style.css";
 function NavBar(props) {
   return <div className="">
   
-  <nav className="navbar navbar-expand-md sticky navbar-light bg-light">
+  <nav className="navbar navbar-expand-md sticky navbar-light ">
   <div className="container">
     <a className="navbar-brand abs" href="/">Busy Bite</a>
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
