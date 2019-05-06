@@ -46,6 +46,7 @@ class App extends Component {
               name={twomenuitems[0].name}
               image={twomenuitems[0].image}
               price={twomenuitems[0].price}
+              description={twomenuitems[0].description}
             />
           { twomenuitems[1] ? <EntreeCard
               id={twomenuitems[1].id}
@@ -53,6 +54,7 @@ class App extends Component {
               name={twomenuitems[1].name}
               image={twomenuitems[1].image}
               price={twomenuitems[1].price}
+              description={twomenuitems[1].description}
             /> : null }
 </React.Fragment>
     )
