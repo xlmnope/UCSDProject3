@@ -24,7 +24,7 @@ class EntreeCard extends React.Component {
         <h5 className="card-title">{this.props.name}</h5>
         <p className="card-text">{this.props.description}</p>
       </div>
-      
+
       <Modal
         size="lg"
         show={this.state.lgShow}
@@ -34,16 +34,16 @@ class EntreeCard extends React.Component {
       >
         <Modal.Header closeButton>
           <Modal.Title id="example-modal-sizes-title-lg">
-          {this.props.name}    </Modal.Title>
+            {this.props.name}    </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Container>
 
             <Col xs={12} md={6}>
-             <img className="modalpic" src={this.props.image} alt="food" />
+              <img className="modalpic" src={this.props.image} alt="food" />
             </Col>
             <Col xs={12} md={6} className="detailcol">
-              
+
               <div className="section">Select Sides</div>
               <Form>
                 {['Chips'].map(side => (
@@ -53,11 +53,11 @@ class EntreeCard extends React.Component {
                       id={`default-${side}`}
                       label={`${side}`}
                     />
-                   <div className="price">+$1.00</div>
+                    <div className="price">+$2.00</div>
 
                   </div>
                 ))}
-             </Form>
+              </Form>
               <div className="section">Choose Your Drink </div>
 
               <Form>
@@ -101,16 +101,35 @@ class EntreeCard extends React.Component {
                   </div>
                 ))}
               </Form>
-            
+
             </Col>
 
 
 
           </Container>
-       
+
         </Modal.Body>
         <Modal.Footer>
-        <div className="checkoutbtn">Add to cart</div>
+          <div className="amnt-container">
+          <button className="plus-minus">
+            <svg viewBox="0 0 64 64" width="16px" height="16px" class=" ue-ec">
+              <g><path d="M55 36H9a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h46a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1z"></path>
+              </g>
+            </svg>
+          </button>
+          <div class="amtnumber">1</div>
+          <button className="plus-minus">
+            <svg viewBox="0 0 64 64" width="16px" height="16px" class=" ue-ec">
+              <path d="M56 29v6a1 1 0 0 1-1 1H36v19a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1V36H9a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h19V9a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v19h19a1 1 0 0 1 1 1z"></path>
+            </svg>
+          </button>
+          </div>
+          <div className="checkoutbtn">
+            <div className="btntxt">
+              Add to cart
+            </div>
+          </div>
+          {/* add on click function to add to cart */}
         </Modal.Footer>
       </Modal>
 
