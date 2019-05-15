@@ -1,0 +1,42 @@
+.header {
+  background-image: url("/images/southofheaven.jpeg");
+    background-position: center center;
+    background-size: cover;
+}
+
+.headercontainer{
+  height: 100%;
+  padding: 0 15px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1238px;
+  display: flex;
+
+}
+.headercard{
+  padding: 32px;
+  max-width: 480px;
+  border-radius: 4px;
+  align-self: center;
+  flex-direction: column;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 25px 0px;
+}
+
+.companyname {
+  line-height: 44px;
+  font-size: 36px;
+  margin-bottom: 48px;
+}
+
+.type{
+  line-height: 20px;
+  font-size: 14px;
+  color: #757575;
+}
+@media only screen and (min-width: 769px) {
+  .header {
+      height: 364px;
+      margin-top: 50px;
+  }
+}

@@ -1,5 +1,4 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component }  from 'react';
 import './App.css';
 import NavBar from './Components/NavBar';
 import Header from './Components/Header';
@@ -16,7 +15,7 @@ import FloatCart from './Components/Shelf';
 
 
 
-class App extends React.Component {
+class App extends Component {
   state = {
     menu,
     score: 0,
@@ -109,3 +108,4 @@ class App extends React.Component {
 }
 
 export default App;
+

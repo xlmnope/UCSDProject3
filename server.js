@@ -1,20 +1,26 @@
 require("dotenv").config();
 var express = require("express");
-
+var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+// Middleware
+// code to be added
+// app.use(express.urlencoded({ extended: false }));
+// app.use(express.json());
+// app.use(express.static("public"));
+
 // Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+//require("./routes/api-routes")(app);
+//require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
-// clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
-  syncOptions.force = true;
-}
+// // clearing the `testdb`
+// if (process.env.NODE_ENV === "test") {
+//   syncOptions.force = true;
+// }
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
