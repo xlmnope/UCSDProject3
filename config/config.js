@@ -10,15 +10,14 @@ module.exports = {
   },
   test: {
     username: "root",
-    password: "",
+    password: "password",
     database: "testdb",
     host: "localhost",
     dialect: "mysql",
     logging: false
   },
   production: {
-    use_env_variable:
-      "mysql://ogn10yny9axifrns:puq80zz1rkdk2ah2@lyl3nln24eqcxxot.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/a1n6hj72sz1crpwz",
+    use_env_variable:null,
     dialect: "mysql"
   }
 };
