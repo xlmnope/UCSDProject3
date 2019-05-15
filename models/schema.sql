@@ -1,7 +1,5 @@
 DROP DATABASE IF EXISTS busy_biteDB;
-
 CREATE DATABASE busy_biteDB;
-
 USE busy_biteDB;
 
 CREATE TABLE user_profile (
