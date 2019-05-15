@@ -6,15 +6,15 @@ var PORT = process.env.PORT || 3000;
 
 // Middleware
 // code to be added
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.use(express.static("public"));
+// app.use(express.urlencoded({ extended: false }));
+// app.use(express.json());
+// app.use(express.static("public"));
 
 // Routes
 //require("./routes/api-routes")(app);
-require("./routes/htmlRoutes")(app);
+//require("./routes/htmlRoutes")(app);
 
-// var syncOptions = { force: false };
+var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
 // // clearing the `testdb`
@@ -23,7 +23,7 @@ require("./routes/htmlRoutes")(app);
 // }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync().then(function() {
+db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
