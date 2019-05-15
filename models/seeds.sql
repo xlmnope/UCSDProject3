@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS busy_biteDB;
+CREATE DATABASE busy_biteDB;
 use busy_biteDB;
 
 create table menu_items (
@@ -22,4 +24,3 @@ INSERT INTO menu_items (item, description, price) VALUES ('Getcha Pulled Chicken
 
 INSERT INTO menu_items (item, description, price) VALUES ('Nachos Be Thy Name', 'Tortilla chips smothered in melted, shredded cheese and Getcha Pulled Chicken, topped with a blended guacamole and sour cream sauce. Salsa, jalapenos, and hot peppers served on the side', '8.00');
 
-select * from quotes;
