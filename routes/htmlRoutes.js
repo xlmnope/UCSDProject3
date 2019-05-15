@@ -2,7 +2,7 @@
 var path = require("path");
 
 // Requiring our custom middleware for checking if a user is logged in
-var isAuthenticated = require("../config/config");
+var isAuthenticated = require("../savajunk/middleware/isAuthenticated");
 
 module.exports = function(app) {
 
