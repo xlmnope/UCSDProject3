@@ -1,8 +1,9 @@
 import React from "react";
+import "./style.css";
 
 function CheckoutCard(props) {
   return <div class="card">
-  <div class="card-body">
+  <div class="card-body buttoncontainer">
     <button id="checkout">Checkout</button>
   </div>
   <ul class="list-group list-group-flush">
