@@ -1,2 +1,9 @@
+<<<<<<< HEAD
 node_modules
 .env
+=======
+.DS_Store
+node_modules
+npm-debug.log
+.env
+>>>>>>> 65fdaa4b731284f89f19eece7fab8c7ee7c7ca4e
