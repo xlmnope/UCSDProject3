@@ -12,8 +12,9 @@ app.use(express.static("public"));
 
 // Routes
 //require("./routes/api-routes")(app);
-//require("./routes/htmlRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
+// var syncOptions = { force: false };
  var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
@@ -23,7 +24,7 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
+db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
