@@ -1,16 +1,14 @@
 import React, { Component }  from 'react';
 import './App.css';
-import NavBar from './Components/NavBar';
-import Header from './Components/Header';
-import FilterBar from './Components/FilterBar';
-import EntreeCard from './Components/EntreeCard';
+import NavBar from './components/NavBar';
+import Header from './components/Header';
+import FilterBar from './components/FilterBar';
+import EntreeCard from './components/EntreeCard';
 import menu from "./menu.json";
-import CheckoutCard from "./Components/CheckoutCard";
+import CheckoutCard from "./components/CheckoutCard";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
-import Shelf from './Components/FloatCart';
-import FloatCart from './Components/Shelf';
 
 
 
@@ -67,8 +65,6 @@ class App extends Component {
         <NavBar/> 
         <Header/>
         <FilterBar/>
-        <Shelf/>
-        <FloatCart/>
 
       <Row>
         <Container>
@@ -86,25 +82,6 @@ class App extends Component {
             );
   }
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
 }
 
 export default App;
