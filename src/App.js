@@ -4,7 +4,7 @@ import NavBar from './components/NavBar';
 import Header from './components/Header';
 import FilterBar from './components/FilterBar';
 import EntreeCard from './components/EntreeCard';
-import menu from "./menu.json";
+//import menu from "./menu.json";
 import CheckoutCard from "./components/CheckoutCard";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -14,11 +14,36 @@ import Container from 'react-bootstrap/Container';
 
 
 class App extends Component {
-  state = {
-    menu,
-    score: 0,
-    highscore: 0
-  }; 
+   state = {
+  //  // menu,
+  //   score: 0,
+  //   highscore: 0
+   }; 
+
+  componentDidMount = () => {
+    // Make an API request to get the data...
+  fetch("/api/items")
+      .then(res => res.json())
+     // Call setState with the result of the API request
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            menu: result.items
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+  }
+
 
   renderItems = () => {
     let returnArr = [];
