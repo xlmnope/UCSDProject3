@@ -2,18 +2,18 @@ import React from "react";
 import "./style.css";
 
 function CheckoutCard(props) {
-  return <div class="card">
-  <div class="card-body buttoncontainer">
+  return <div className="card">
+  <div className="card-body buttoncontainer">
     <button id="checkout">Checkout</button>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
+  <ul className="list-group list-group-flush">
+    <li className="list-group-item">Cras justo odio</li>
+    <li className="list-group-item">Dapibus ac facilisis in</li>
+    <li className="list-group-item">Vestibulum at eros</li>
   </ul>
-  <div class="card-body">
-    <a href="/" class="card-link">Card link</a>
-    <a href="/" class="card-link">Another link</a>
+  <div className="card-body">
+    <a href="/" className="card-link">Card link</a>
+    <a href="/" className="card-link">Another link</a>
   </div>
 </div>
 

@@ -46,6 +46,9 @@ db.Item = sequelize.define('menu_item', {
   price: {
     type: Sequelize.DataTypes.DECIMAL
   },
+  image: {
+    type: Sequelize.DataTypes.STRING
+  }
 
 
 })
