@@ -8,7 +8,7 @@ const env = process.env.NODE_ENV || 'development';
 const config = require('../config/config.js' )[env];
 const db = {};
 
-console.log(config);
+console.log("config is: ",config);
 
 let sequelize;
 if (config.use_env_variable) {

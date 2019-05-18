@@ -56,7 +56,7 @@ class App extends Component {
       returnArr.push(this.renderMenuItems(twomenuitems));
     }
 
-    console.log(returnArr)
+    console.log("return arr", returnArr);
     return returnArr;
 
   }
