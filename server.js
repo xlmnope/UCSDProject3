@@ -8,10 +8,10 @@ var PORT = process.env.PORT || 3000;
 // code to be added
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static("build"));
 
 // Routes
-//require("./routes/api-routes")(app);
+require("./routes/apiroutes")(app);
 require("./routes/htmlRoutes")(app);
 
 // var syncOptions = { force: false };
