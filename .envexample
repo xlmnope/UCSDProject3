@@ -1,6 +1,0 @@
-DB_HOST=localhost
-DB_USER=root
-DB_PASS=password
-export TWILIO_ACCOUNT_SID=
-export TWILIO_AUTH_TOKEN=
-export TWILIO_NUMBER=
