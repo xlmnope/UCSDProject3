@@ -4,7 +4,6 @@ import NavBar from './components/NavBar';
 import Header from './components/Header';
 import FilterBar from './components/FilterBar';
 import EntreeCard from './components/EntreeCard';
-//import menu from "./menu.json";
 import CheckoutCard from "./components/CheckoutCard";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
