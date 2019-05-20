@@ -8,6 +8,7 @@ import CheckoutCard from "./components/CheckoutCard";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
+import Floatcart from './components/FloatCart';
 
 
 
@@ -55,7 +56,7 @@ class App extends Component {
       returnArr.push(this.renderMenuItems(twomenuitems));
     }
 
-    console.log(returnArr)
+    console.log("return arr", returnArr);
     return returnArr;
 
   }
@@ -100,6 +101,8 @@ class App extends Component {
             <Col xs={4}>
               <CheckoutCard />
             </Col>
+
+            <Floatcart></Floatcart>
           </Container>
 
         </Row>
