@@ -8,7 +8,6 @@ import CheckoutCard from "./components/CheckoutCard";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
-import Floatcart from './components/FloatCart';
 
 class App extends Component {
   state = {
@@ -136,7 +135,6 @@ class App extends Component {
               />
             </Col>
 
-            <Floatcart></Floatcart>
           </Container>
 
         </Row>
