@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
+import Alert from 'react-bootstrap/Alert'
 import './App.css';
 import NavBar from './components/NavBar';
 import Header from './components/Header';
@@ -12,11 +13,11 @@ import Container from 'react-bootstrap/Container';
 class App extends Component {
   state = {
     menu: [],
-    cart: []
+    cart: [],
+    showSuccess: false
   };
 
   addtocart = (name) => {
-    //alert("click add to cart");
     console.log("addtocartfunction");
     let cart = this.state.cart;
     cart.push(name);
@@ -28,7 +29,6 @@ class App extends Component {
   }
 
   checkout = () => {
-    //alert("checkout");
     console.log("checkoutbutton");
     fetch('/api/checkout', {
       method: 'POST',
@@ -38,11 +38,16 @@ class App extends Component {
       body: JSON.stringify({
         items: this.state.cart
       })
-    })
-    this.setState({
-      cart:[]
     });
+      this.setState({
+        cart:[],
+        showSuccess: true
+      });
+      setTimeout(()=>{this.setState({ showSuccess: false }); }, 3000);
+     
   }
+  
+  
   //remove item from cart function
   //remove item from cart
 
@@ -133,6 +138,10 @@ class App extends Component {
                 cart={this.state.cart}
                 checkout={this.checkout}
               />
+              <Alert variant="success"
+              show={this.state.showSuccess}> 
+                Your order is in!
+              </Alert>
             </Col>
 
           </Container>
@@ -142,8 +151,8 @@ class App extends Component {
       </React.Fragment>
     );
   }
-
 }
+
 
 export default App;
 
