@@ -124,7 +124,10 @@ class EntreeCard extends React.Component {
             </svg>
           </button>
           </div>
-          <div className="checkoutbtn">
+          <div className="checkoutbtn" onClick={() => {
+            this.props.addtocart(this.props.name);
+            lgClose();
+          }}>
             <div className="btntxt">
               Add to cart
             </div>

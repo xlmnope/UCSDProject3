@@ -96,6 +96,35 @@ const seeds = [
 
 db.Item.bulkCreate(seeds);
 
+db.Item = sequelize.define('menu_item', {
+  item: {
+    type: Sequelize.DataTypes.STRING
+  },
+  description: {
+    type: Sequelize.DataTypes.STRING
+  },
+  price: {
+    type: Sequelize.DataTypes.DECIMAL
+  },
+  image: {
+    type: Sequelize.DataTypes.STRING
+  }
+
+
+})
+
+db.Checkout = sequelize.define('checkout', {
+  items: {
+    type: Sequelize.STRING,
+    get() {
+      return this.getDataValue('items').split(';')
+    },
+    set(val) {
+      this.setDataValue('items',val.join(';'));
+    }
+  }
+})
+
 module.exports = db;
 
 
