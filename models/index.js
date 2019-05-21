@@ -50,16 +50,55 @@ db.Item = sequelize.define('menu_item', {
     type: Sequelize.DataTypes.STRING
   }
 })
+const seeds = [
+  {
+    item: "Full Metal Burger",
+    description: "Fresh, handmade, quarter pound ground beef patty with melted cheese and lettuce, tomato, onion",
+    price: 8.00,
+    image:"images/fullmetal2.png"},
+  {
+    item: "Black Bean Society Veggie Burger",
+    description: "100% non-beef (black bean) patty with melted cheese and lettuce, tomato, and onion",
+    price: 10.00,
+    image:"images/blackbean.png"
+  },
+  {
+    item: "Legion of Shrooms Burger",
+    description: "Fresh, handmade, quarter pound ground beef patty with two slices of melted swiss over grilled musrooms and carmelized onions. Served with creamy dijon on the bun",
+    price: 11.00,
+    image:"images/legionofshrooms.jpg"
+  },
+  {
+    item: "Rest in Pesto (RIP) Burger'",
+    description: "Fresh, handmade, quarter pound ground beef patty with melted mozzarella over two fresh tomato slices and marinara sauce with basil pesto spread on the bun.",
+    price: 12.00,
+    image:"images/restinpesto.jpg"
+  },
+  {
+    item: "South of Heaven Burger",
+    description: "Two fresh, handmade, quarter pound ground beef patties (1/2 pound total) with two slices of spicy cheddar cheese infused with buffalo sauce and hot peppers. Served with hellfire pickles, pickled jalapeno slices, grilled onions, bacon, and sriracha mayo",
+    price: 14.00,
+    image:"images/southofheaven.jpeg"
+  },
+  {
+    item: "Getcha Pulled Chicken",
+    description: "Slow-cooked shredded chicken, marinated in salsa, served with melted shredded cheese and lettuce, tomato, and onion",
+    price: 8.00,
+    image:"images/getchapulledchicken.jpg"
+  },
+  {
+    item: "Nachos Be Thy Name",
+    description: "Tortilla chips smothered in melted, shredded cheese and Getcha Pulled Chicken, topped with a blended guacamole and sour cream sauce. Salsa, jalapenos, and hot peppers served on the side",
+    price: 8.00,
+    image:"images/nachos.jpg"
+  },
+]
 
-db.Item.create({
-  item: "Full Metal Burger",
-  description: "Fresh, handmade, quarter pound ground beef patty with melted cheese and lettuce, tomato, onion",
-  price: 8.00,
-  image:"images/fullmetal2.png"
-
-})
+db.Item.bulkCreate(seeds);
 
 module.exports = db;
+
+
 
 
 
