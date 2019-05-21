@@ -38,7 +38,9 @@ class App extends Component {
       body: JSON.stringify({
         items: this.state.cart
       })
+      
     });
+
       this.setState({
         cart:[],
         showSuccess: true
