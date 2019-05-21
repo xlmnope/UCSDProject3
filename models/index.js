@@ -49,8 +49,17 @@ db.Item = sequelize.define('menu_item', {
   image: {
     type: Sequelize.DataTypes.STRING
   }
+})
 
+db.Item.create({
+  item: "Full Metal Burger",
+  description: "Fresh, handmade, quarter pound ground beef patty with melted cheese and lettuce, tomato, onion",
+  price: 8.00,
+  image:"images/fullmetal2.png"
 
 })
 
 module.exports = db;
+
+
+
