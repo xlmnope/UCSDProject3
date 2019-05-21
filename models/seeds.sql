@@ -1,6 +1,4 @@
-DROP DATABASE IF EXISTS busy_biteDB;
-CREATE DATABASE busy_biteDB;
-use busy_biteDB;
+use w8awkwktp8lbxqrl;
 
 create table menu_items (
 id int NOT NULL AUTO_INCREMENT,
