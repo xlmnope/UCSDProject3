@@ -63,6 +63,10 @@ module.exports = function (app) {
     });
   });
 
+  app.post("/api/checkout", function (req, res) {
+    db.Checkout.create({ items: req.body.items })
+  });
+
 
 
 
