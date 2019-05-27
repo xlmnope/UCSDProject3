@@ -9,6 +9,7 @@ module.exports = function (app) {
   // If the users has valid login credentials, send them to the members page.
   // Otherwise the users will be sent an error
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
+    console.log('test');
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
     // So we're sending the users back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
@@ -20,7 +21,7 @@ module.exports = function (app) {
   // otherwise send back an error
   app.post("/api/signup", function (req, res) {
     console.log("users info: ", req.body);
-    db.users.create({
+    db.User.create({
       email: req.body.email,
       phone: req.body.phone,
       password: req.body.password
@@ -58,11 +59,26 @@ module.exports = function (app) {
 
   // Get all items to show in UI
   app.get("/api/items", function (req, res) {
+    
+
+    
     db.Item.findAll({}).then(function (dbExamples) {
       res.json(dbExamples);
+  
     });
   });
 
+  app.post("/api/items", function (req, res) {
+    
+   console.log(req.body, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"); //returns 'on'
+  });
+
+  app.post('/', (req, res) => {
+    // const request = req.body;
+    // let drink = request.drink;
+
+   console.log(req.body, "BBBBBBB"); //returns 'on'
+})
 
 
 
