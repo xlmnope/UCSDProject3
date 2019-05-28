@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
+import Alert from 'react-bootstrap/Alert'
 import './App.css';
 import NavBar from './components/NavBar';
 import Header from './components/Header';
@@ -8,16 +9,50 @@ import CheckoutCard from "./components/CheckoutCard";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
-import Floatcart from './components/FloatCart';
-
-
-
 
 class App extends Component {
   state = {
-    menu: []
-
+    menu: [],
+    cart: [],
+    showSuccess: false
   };
+
+  addtocart = (name) => {
+    console.log("addtocartfunction");
+    let cart = this.state.cart;
+    cart.push(name);
+    this.setState({
+      cart: cart
+    }, ()=>{
+      console.log("this.state.cart: ", this.state.cart);
+    });
+  }
+
+  checkout = () => {
+    console.log("checkoutbutton");
+    fetch('/api/checkout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        items: this.state.cart
+      })
+      
+    });
+
+      this.setState({
+        cart:[],
+        showSuccess: true
+      });
+      setTimeout(()=>{this.setState({ showSuccess: false }); }, 3000);
+     
+  }
+  
+  
+  //remove item from cart function
+  //remove item from cart
+
 
   componentDidMount = () => {
     console.log("is this working")
@@ -48,9 +83,9 @@ class App extends Component {
 
   renderItems = () => {
     let returnArr = [];
-    console.log("menu: ", this.state.menu);
+    //console.log("menu: ", this.state.menu);
     const menuitemsArr = this.state.menu.slice(0);
-    console.log('menuitemsArr', menuitemsArr);
+    //console.log('menuitemsArr', menuitemsArr);
     for (var i = 0; i < menuitemsArr.length; i++) {
       const twomenuitems = menuitemsArr.splice(0, 2)
       returnArr.push(this.renderMenuItems(twomenuitems));
@@ -69,18 +104,20 @@ class App extends Component {
         <EntreeCard
           id={twomenuitems[0].id}
           key={twomenuitems[0].id}
-          name={twomenuitems[0].name}
+          name={twomenuitems[0].item}
           image={twomenuitems[0].image}
           price={twomenuitems[0].price}
           description={twomenuitems[0].description}
+          addtocart={this.addtocart}
         />
         {twomenuitems[1] ? <EntreeCard
           id={twomenuitems[1].id}
           key={twomenuitems[1].id}
-          name={twomenuitems[1].name}
+          name={twomenuitems[1].item}
           image={twomenuitems[1].image}
           price={twomenuitems[1].price}
           description={twomenuitems[1].description}
+          addtocart={this.addtocart}
         /> : null}
       </React.Fragment>
     )
@@ -99,10 +136,16 @@ class App extends Component {
               {this.renderItems()}
             </Col>
             <Col xs={4}>
-              <CheckoutCard />
+              <CheckoutCard 
+                cart={this.state.cart}
+                checkout={this.checkout}
+              />
+              <Alert variant="success"
+              show={this.state.showSuccess}> 
+                Your order is in!
+              </Alert>
             </Col>
 
-            <Floatcart></Floatcart>
           </Container>
 
         </Row>
@@ -110,8 +153,8 @@ class App extends Component {
       </React.Fragment>
     );
   }
-
 }
+
 
 export default App;
 

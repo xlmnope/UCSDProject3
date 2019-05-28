@@ -68,6 +68,7 @@ module.exports = function (app) {
     });
   });
 
+
   app.post("/api/items", function (req, res) {
     
    console.log(req.body, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"); //returns 'on'
@@ -79,6 +80,13 @@ module.exports = function (app) {
 
    console.log(req.body, "BBBBBBB"); //returns 'on'
 })
+
+  app.post("/api/checkout", function (req, res) {
+    db.Checkout.create({ items: req.body.items })
+    res.status(200).end();
+  });
+
+
 
 
 

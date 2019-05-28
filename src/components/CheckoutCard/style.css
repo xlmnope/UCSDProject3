@@ -21,3 +21,27 @@
       border-color: rgb(36, 122, 0);
       background: rgb(36, 122, 0);
     }
+
+    #checkout:disabled{
+      width: 100%;
+      justify-content: center;
+      min-width: 120px;
+      padding: 8px 16px;
+      font-size: 14px;
+      color: white;
+      cursor: default;
+      border-width: 1px;
+      border-style: solid;
+      border-color: rgb(159, 204, 144);
+      background: rgb(159, 204, 144);
+      stroke: white;
+      text-decoration: none;
+    border-style: solid;
+    border-image: initial;
+    }
+    
+    .empty{
+      color: #E0E0E0;
+      line-height: 24px;
+      font-size: 16px;
+    }

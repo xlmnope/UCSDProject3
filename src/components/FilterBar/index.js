@@ -10,7 +10,7 @@ function FilterBar(props) {
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
         <span className="navbar-toggler-icon"></span>
     </button>
-    <div className="navbar-collapse collapse" id="collapsingNavbar">
+    {/* <div className="navbar-collapse collapse" id="collapsingNavbar">
         <ul className="navbar-nav">
             <li className="nav-item active">
                 <a className="nav-link" href="/">Most Popular</a>
@@ -25,7 +25,7 @@ function FilterBar(props) {
                 <a className="nav-link" href="/">Sides</a>
             </li>
         </ul>
-    </div>
+    </div> */}
     </div>
   </nav>
 </div>
