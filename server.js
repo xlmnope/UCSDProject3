@@ -3,14 +3,11 @@ var express = require("express");
 var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 3000;
-var passport = require('passport');
 
 // Middleware
 // code to be added
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(express.static("build"));
 
 // Routes

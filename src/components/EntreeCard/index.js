@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Button, Row, Container, Col, Form } from "react-bootstrap"
+import { Modal, Button, Container, Col, Form } from "react-bootstrap"
 import "./style.css";
 
 class EntreeCard extends React.Component {
@@ -46,56 +46,83 @@ class EntreeCard extends React.Component {
 
               <div className="section">Select Sides</div>
               <Form>
-                    <Form.Group as={Row}>
-                      <Form.Label as="legend" column sm={2}>
-                        Radios
-                      </Form.Label>
-                        <Form.Check
-                          type="checkbox"
-                          label="Chips"
-                          name="formHorizontalRadios"
-                          id="formHorizontalRadios1"
-                        />
-                        <Form.Check
-                          type="checkbox"
-                          label="second checkbox"
-                          name="formHorizontalRadios"
-                          id="formHorizontalRadios2"
-                        />
-                        <Form.Check
-                          type="checkbox"
-                          label="third checkbox"
-                          name="formHorizontalRadios"
-                          id="formHorizontalRadios3"
-                        />
-                    </Form.Group>
+                {['Chips'].map(side => (
+                  <div key={`default-${side}`} className="mb-3 choices">
+                    <Form.Check
+                      type='checkbox'
+                      id={`default-${side}`}
+                      label={`${side}`}
+                    />
+                    <div className="price">+$2.00</div>
 
-                  <Form.Group as={Row}>
-                    <Col sm={{ span: 10, offset: 2 }}>
-                      <Button type="submit">Sign in</Button>
-                    </Col>
-                  </Form.Group>
-                </Form>;
-              
+                  </div>
+                ))}
+              </Form>
+              <div className="section">Choose Your Drink </div>
+
+              <Form>
+                {['Coke', 'Diet Coke', 'Sprite', 'Water'].map(drinks => (
+                  <div key={`default-${drinks}`} className="mb-3 choices">
+                    <Form.Check
+                      type='checkbox'
+                      id={`${drinks}`}
+                      label={`${drinks}`}
+                    />
+                    <div className="price">+$1.00</div>
+
+                  </div>
+                ))}
+              </Form>
+
+              <div className="section">Add Extras to {this.props.name} </div>
+              <Form>
+                {['Add Bacon', 'Add Grilled Onion', 'Add Grilled Jalapenos'].map(extras => (
+                  <><div key={`default-${extras}`} className="mb-3 choices">
+                    <Form.Check
+                      type='checkbox'
+                      id={`${extras}`}
+                      label={`${extras}`}
+                    />
+                    <div className="price">+$1.00</div>
+                  </div>
+
+                  </>
+                ))}
+              </Form>
+              <div className="section">Remove from {this.props.name} </div>
+              <Form>
+                {['Remove Lettuce', 'Remove Tomato', 'Remove Onion'].map(extras => (
+                  <div key={`default-${extras}`} className="mb-3 choices">
+                    <Form.Check
+                      type='checkbox'
+                      id={`${extras}`}
+                      label={`${extras}`}
+                    />
+                  </div>
+                ))}
+              </Form>
+
             </Col>
+
+
 
           </Container>
 
         </Modal.Body>
         <Modal.Footer>
           <div className="amnt-container">
-            <button className="plus-minus">
-              <svg viewBox="0 0 64 64" width="16px" height="16px" class=" ue-ec">
-                <g><path d="M55 36H9a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h46a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1z"></path>
-                </g>
-              </svg>
-            </button>
-            <div class="amtnumber">1</div>
-            <button className="plus-minus">
-              <svg viewBox="0 0 64 64" width="16px" height="16px" class=" ue-ec">
-                <path d="M56 29v6a1 1 0 0 1-1 1H36v19a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1V36H9a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h19V9a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v19h19a1 1 0 0 1 1 1z"></path>
-              </svg>
-            </button>
+          <button className="plus-minus">
+            <svg viewBox="0 0 64 64" width="16px" height="16px" class=" ue-ec">
+              <g><path d="M55 36H9a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h46a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1z"></path>
+              </g>
+            </svg>
+          </button>
+          <div class="amtnumber">1</div>
+          <button className="plus-minus">
+            <svg viewBox="0 0 64 64" width="16px" height="16px" class=" ue-ec">
+              <path d="M56 29v6a1 1 0 0 1-1 1H36v19a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1V36H9a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h19V9a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v19h19a1 1 0 0 1 1 1z"></path>
+            </svg>
+          </button>
           </div>
           <div className="checkoutbtn" onClick={() => {
             this.props.addtocart(this.props.name);
