@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Button, Container, Col, Form } from "react-bootstrap"
+import { Modal, Container, Col, Form } from "react-bootstrap"
 import "./style.css";
 
 class EntreeCard extends React.Component {
@@ -7,15 +7,23 @@ class EntreeCard extends React.Component {
     super(props, context);
 
     this.state = {
-      lgShow: false
+      lgShow: false, 
+      count: 0
     };
   }
 
+  handleIncrement = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+
+  handleDecrement = () => {
+    this.setState({ count: this.state.count - 1 });
+  };
 
 
   render() {
     let lgClose = () => {
-      this.setState({ lgShow: false });
+      this.setState({ lgShow: false, count: 0 });
     }
 
     return <div className="card entreecard ">
@@ -31,6 +39,9 @@ class EntreeCard extends React.Component {
         onHide={lgClose}
         aria-labelledby="example-modal-sizes-title-lg"
         scrollable="true"
+        count={this.state.count}
+        handleIncrement={this.handleIncrement}
+        handleDecrement={this.handleDecrement}
       >
         <Modal.Header closeButton>
           <Modal.Title id="example-modal-sizes-title-lg">
@@ -111,14 +122,14 @@ class EntreeCard extends React.Component {
         </Modal.Body>
         <Modal.Footer>
           <div className="amnt-container">
-          <button className="plus-minus">
+          <button className="plus-minus" onClick={this.handleDecrement}>
             <svg viewBox="0 0 64 64" width="16px" height="16px" class=" ue-ec">
               <g><path d="M55 36H9a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h46a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1z"></path>
               </g>
             </svg>
           </button>
-          <div class="amtnumber">1</div>
-          <button className="plus-minus">
+          <div class="amtnumber">{this.state.count}</div>
+          <button className="plus-minus" onClick={this.handleIncrement}>
             <svg viewBox="0 0 64 64" width="16px" height="16px" class=" ue-ec">
               <path d="M56 29v6a1 1 0 0 1-1 1H36v19a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1V36H9a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h19V9a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v19h19a1 1 0 0 1 1 1z"></path>
             </svg>
