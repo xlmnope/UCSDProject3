@@ -171,7 +171,7 @@ class EntreeCard extends React.Component {
           </button>
           </div>
           <div className="checkoutbtn" onClick={() => {
-            this.props.addtocart(this.props, this.state);
+            this.props.calculateTotal(this.props, this.state);
             lgClose();
           }}>
             <div className="btntxt">

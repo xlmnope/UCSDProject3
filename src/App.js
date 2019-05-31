@@ -17,20 +17,52 @@ class App extends Component {
     showSuccess: false
   };
 
-  addtocart = (item, state) => {
-    console.log("===addtocartfunction===");
+  calculateTotal = (item, state) => {
+    console.log("===calculate total===");
     console.log("item: ", item);
     console.log("state: ", state);
+    let totalprice = Number(item.price);
+    if (state.options.length > 0){
+      console.log("calculating options: ")
+      for (let i=0; i<state.options.length; i++){
+         totalprice++;
+         console.log("for loop", i, totalprice)
+
+      }
+    }
+    if (state.drink !== ""){
+      console.log("calculating drink ", totalprice );
+      totalprice++;
+      console.log("drink: ", totalprice)
+    }
+    if (state.side !== ""){
+      console.log("calculating side: ", totalprice)
+      totalprice += 2;
+      console.log("side: ", totalprice);
+
+    }
+    if (state.count > 1){
+      console.log("calculating amount: ", totalprice)
+      totalprice = totalprice * state.count;
+      console.log("amount new total: ", totalprice);
+
+    }
     let cart = this.state.cart;
     let cartobj = {
       name: item.name,
       count: state.count,
-      price: item.price,// fix this later
+      price: totalprice,
       options: state.options,
       side: state.side,
       drink: state.drink
     }
     cart.push(cartobj);
+    this.addtocart(cart);
+  }
+
+  addtocart = (cart) => {
+    console.log("===addtocartfunction===");
+    console.log("cart: ",cart);
     this.setState({
       cart: cart
     }, () => {
@@ -65,7 +97,6 @@ class App extends Component {
 
 
   componentDidMount = () => {
-    console.log("is this working")
     // Make an API request to get the data...
     fetch("/api/items")
       .then(response => response.json())
@@ -73,8 +104,8 @@ class App extends Component {
 
       .then(
         (result) => {
-          console.log("result ", result);
-          console.log("result[0]", result[0]);
+          //console.log("result ", result);
+          //console.log("result[0]", result[0]);
           this.setState({
             isLoaded: true,
             menu: result
@@ -108,7 +139,7 @@ class App extends Component {
 
   renderOptions = (count) => {
     console.log("====renderoptions====");
-    console.log(count);
+    console.log("count: ",count);
     let returnArr = []
     for (var i = 0; i < 10; i++) {
       if (i+1 === count) {
@@ -127,7 +158,7 @@ class App extends Component {
   }
 
   renderMenuItems = (twomenuitems) => {
-    console.log("twomenuitems: ", twomenuitems)
+    //console.log("twomenuitems: ", twomenuitems)
     return (
       <React.Fragment>
 
@@ -138,6 +169,7 @@ class App extends Component {
           image={twomenuitems[0].image}
           price={twomenuitems[0].price}
           description={twomenuitems[0].description}
+          calculateTotal={this.calculateTotal}
           addtocart={this.addtocart}
         />
         {twomenuitems[1] ? <EntreeCard
@@ -147,6 +179,7 @@ class App extends Component {
           image={twomenuitems[1].image}
           price={twomenuitems[1].price}
           description={twomenuitems[1].description}
+          calculateTotal={this.calculateTotal}
           addtocart={this.addtocart}
         /> : null}
       </React.Fragment>
