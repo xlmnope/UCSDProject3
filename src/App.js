@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 import Alert from 'react-bootstrap/Alert'
 import './App.css';
 import NavBar from './components/NavBar';
@@ -22,10 +22,18 @@ class App extends Component {
     console.log("item: ", item);
     console.log("state: ", state);
     let cart = this.state.cart;
-    cart.push(item.name, state.count, item.price, state.options, state.drink, state.side );
+    let cartobj = {
+      name: item.name,
+      count: state.count,
+      price: item.price,// fix this later
+      options: state.options,
+      side: state.side,
+      drink: state.drink
+    }
+    cart.push(cartobj);
     this.setState({
       cart: cart
-    }, ()=>{
+    }, () => {
       console.log("this.state.cart: ", this.state.cart);
     });
   }
@@ -40,18 +48,18 @@ class App extends Component {
       body: JSON.stringify({
         items: this.state.cart
       })
-      
+
     });
 
-      this.setState({
-        cart:[],
-        showSuccess: true
-      });
-      setTimeout(()=>{this.setState({ showSuccess: false }); }, 3000);
-     
+    this.setState({
+      cart: [],
+      showSuccess: true
+    });
+    setTimeout(() => { this.setState({ showSuccess: false }); }, 3000);
+
   }
-  
-  
+
+
   //remove item from cart function
   //remove item from cart
 
@@ -60,9 +68,9 @@ class App extends Component {
     console.log("is this working")
     // Make an API request to get the data...
     fetch("/api/items")
-    .then(response => response.json())
-    // Call setState with the result of the API request
- 
+      .then(response => response.json())
+      // Call setState with the result of the API request
+
       .then(
         (result) => {
           console.log("result ", result);
@@ -95,6 +103,26 @@ class App extends Component {
 
     console.log("return arr", returnArr);
     return returnArr;
+
+  }
+
+  renderOptions = (count) => {
+    console.log("====renderoptions====");
+    console.log(count);
+    let returnArr = []
+    for (var i = 0; i < 10; i++) {
+      if (i+1 === count) {
+          returnArr.push(<option selected> {i+1} </option>)
+      }
+      else {
+        returnArr.push(<option> {i+1} </option>)
+      }
+
+    }
+    console.log(returnArr);
+    return (
+      returnArr
+    )
 
   }
 
@@ -138,12 +166,13 @@ class App extends Component {
               {this.renderItems()}
             </Col>
             <Col xs={4}>
-              <CheckoutCard 
+              <CheckoutCard
                 cart={this.state.cart}
                 checkout={this.checkout}
+                renderOptions={this.renderOptions}
               />
               <Alert variant="success"
-              show={this.state.showSuccess}> 
+                show={this.state.showSuccess}>
                 Your order is in!
               </Alert>
             </Col>
