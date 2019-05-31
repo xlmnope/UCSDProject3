@@ -17,10 +17,12 @@ class App extends Component {
     showSuccess: false
   };
 
-  addtocart = (name) => {
-    console.log("addtocartfunction");
+  addtocart = (item, state) => {
+    console.log("===addtocartfunction===");
+    console.log("item: ", item);
+    console.log("state: ", state);
     let cart = this.state.cart;
-    cart.push(name);
+    cart.push(item.name, state.count, item.price, state.options, state.drink, state.side );
     this.setState({
       cart: cart
     }, ()=>{

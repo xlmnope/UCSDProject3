@@ -8,7 +8,11 @@ class EntreeCard extends React.Component {
 
     this.state = {
       lgShow: false, 
-      count: 0
+      count: 1,
+      side: "",
+      options: [],
+      drink: "",
+      input: ""
     };
   }
 
@@ -20,10 +24,34 @@ class EntreeCard extends React.Component {
     this.setState({ count: this.state.count - 1 });
   };
 
+  options = (event) => {
+    console.log("====options=====");
+    console.log("event.target.id: ", event.target.id);
+    let options = this.state.options;
+    options.push(event.target.id);
+    this.setState({ options: options }); 
+    console.log("this.state.options: ", this.state.options);
+
+  }
+  
+  drink = (event) => {
+    console.log("=====drink=====");
+    console.log("event.target.id: ", event.target.id);
+    this.setState({drink: event.target.id});
+    console.log("this.state.drink: ", this.state.drink);
+
+  }
+
+  side = (event) => {
+    console.log("====side=====");
+    console.log("event.target.id: ", event.target.id);
+    this.setState({side: event.target.id});
+    console.log("this.state.side: ", this.state.side);
+  }
 
   render() {
     let lgClose = () => {
-      this.setState({ lgShow: false, count: 0 });
+      this.setState({ lgShow: false, count: 1, drink: "", options: [], side: "", input: "" });
     }
 
     return <div className="card entreecard ">
@@ -42,6 +70,9 @@ class EntreeCard extends React.Component {
         count={this.state.count}
         handleIncrement={this.handleIncrement}
         handleDecrement={this.handleDecrement}
+        side={this.side}
+        options={this.options}
+        drink={this.drink}
       >
         <Modal.Header closeButton>
           <Modal.Title id="example-modal-sizes-title-lg">
@@ -58,10 +89,11 @@ class EntreeCard extends React.Component {
               <div className="section">Select Sides</div>
               <Form>
                 {['Chips'].map(side => (
-                  <div key={`default-${side}`} className="mb-3 choices">
+                  <div key={`default-${side}`} className="mb-3 choices" onClick={this.side}>
                     <Form.Check
                       type='checkbox'
-                      id={`default-${side}`}
+                      side={this.state.side}
+                      id={`${side}`}
                       label={`${side}`}
                     />
                     <div className="price">+$2.00</div>
@@ -73,9 +105,10 @@ class EntreeCard extends React.Component {
 
               <Form>
                 {['Coke', 'Diet Coke', 'Sprite', 'Water'].map(drinks => (
-                  <div key={`default-${drinks}`} className="mb-3 choices">
+                  <div key={`default-${drinks}`} className="mb-3 choices" onChange={this.drink}>
                     <Form.Check
                       type='checkbox'
+                      drink={this.state.drink}
                       id={`${drinks}`}
                       label={`${drinks}`}
                     />
@@ -88,9 +121,10 @@ class EntreeCard extends React.Component {
               <div className="section">Add Extras to {this.props.name} </div>
               <Form>
                 {['Add Bacon', 'Add Grilled Onion', 'Add Grilled Jalapenos'].map(extras => (
-                  <><div key={`default-${extras}`} className="mb-3 choices">
+                  <><div key={`default-${extras}`} className="mb-3 choices" onClick={this.options}>
                     <Form.Check
                       type='checkbox'
+                      options={this.state.options}
                       id={`${extras}`}
                       label={`${extras}`}
                     />
@@ -103,9 +137,10 @@ class EntreeCard extends React.Component {
               <div className="section">Remove from {this.props.name} </div>
               <Form>
                 {['Remove Lettuce', 'Remove Tomato', 'Remove Onion'].map(extras => (
-                  <div key={`default-${extras}`} className="mb-3 choices">
+                  <div key={`default-${extras}`} className="mb-3 choices" onClick={this.options}>
                     <Form.Check
                       type='checkbox'
+                      options={this.state.options}
                       id={`${extras}`}
                       label={`${extras}`}
                     />
@@ -136,7 +171,7 @@ class EntreeCard extends React.Component {
           </button>
           </div>
           <div className="checkoutbtn" onClick={() => {
-            this.props.addtocart(this.props.name);
+            this.props.addtocart(this.props, this.state);
             lgClose();
           }}>
             <div className="btntxt">
