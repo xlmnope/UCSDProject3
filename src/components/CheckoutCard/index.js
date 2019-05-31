@@ -12,7 +12,7 @@ function CheckoutCard(props) {
 
     <ul className="list-group list-group-flush">
       {props.cart.length > 0 ? props.cart.map(cartitem => (
-         <li className="list-group-item">{cartitem} </li>
+         <li className="list-group-item">{cartitem}  </li>
       )) : <li className="list-group-item empty">Add items to your cart and they’ll appear here.</li>}
     </ul>
    
