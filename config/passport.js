@@ -34,6 +34,28 @@ passport.use(new LocalStrategy(
       // If none of the above, return the user
       return done(null, dbUser);
     });
+    // When a user tries to sign in this code runs
+    db.admin.findOne({
+      where: {
+        email: email
+      }
+    }).then(function(dbadmin) {
+      // If there's no user with the given email
+      if (!dbadmin) {
+        return done(null, false, {
+          message: "Incorrect email."
+        });
+      }
+      // If there is a user with the given email, but the password the user gives us is incorrect
+      else if (!dbadmin.validPassword(password)) {
+        return done(null, false, {
+          message: "Incorrect password."
+        });
+      }
+      // If none of the above, return the user
+      return done(null, dbadmin);
+    });
+    
   }
 ));
 //
