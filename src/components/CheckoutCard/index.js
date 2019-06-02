@@ -14,12 +14,31 @@ function CheckoutCard(props) {
     }</div>
 
     <ul className="list-group list-group-flush">
-      {props.cart.length > 0 ? props.cart.map(cartitem => (
-         <li className="list-group-item">
-            <select>
+      {props.cart.length > 0 ? props.cart.map((cartitem, index) => (
+         <li className="list-group-item itemrow">
+            <div className="selectamountcontainer">
+              <select className="selectamount" id={`${index}`} onChange={props.recalculateCart}>
               {props.renderOptions(cartitem.count)}
-            </select>
-             {cartitem.name} {cartitem.price}  
+              </select>
+            </div>
+            <div className="itemandoptions">
+              <div className="item">
+              {cartitem.name}
+              </div>
+              <div className="optionscontainer">
+                <div className="optionscart">
+                  {/* {this.renderSelectedOptions} */}
+                  {cartitem.options}  
+                </div> 
+              </div>
+              <button class="remove" type="button" id={`${index}`} onClick={props.removeFromCart}>Remove</button>
+
+              
+            </div>
+            <div className="pricecart">
+              {cartitem.totalprice}  
+            </div>
+            
           </li>
       )) : <li className="list-group-item empty">Add items to your cart and they’ll appear herename.</li>}
     </ul>
