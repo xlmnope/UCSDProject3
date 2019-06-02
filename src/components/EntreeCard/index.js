@@ -10,7 +10,8 @@ class EntreeCard extends React.Component {
       lgShow: false, 
       count: 1,
       side: "",
-      options: [],
+      addoptions: [],
+      removeoptions: [],
       drink: "",
       input: ""
     };
@@ -24,14 +25,22 @@ class EntreeCard extends React.Component {
     this.setState({ count: this.state.count - 1 });
   };
 
-  options = (event) => {
-    console.log("====options=====");
+  addoptions = (event) => {
+    console.log("====addoptions=====");
     console.log("event.target.id: ", event.target.id);
-    let options = this.state.options;
+    let options = this.state.addoptions;
     options.push(event.target.id);
-    this.setState({ options: options }); 
-    console.log("this.state.options: ", this.state.options);
+    this.setState({ addoptions: options }); 
+    console.log("this.state.addoptions: ", this.state.addoptions);
 
+  }
+  removeoptions = (event) => {
+    console.log("====removeoptions=====");
+    console.log("event.target.id: ", event.target.id);
+    let options = this.state.removeoptions;
+    options.push(event.target.id);
+    this.setState({ removeoptions: options }); 
+    console.log("this.state.removeoptions: ", this.state.removeoptions);
   }
   
   drink = (event) => {
@@ -71,7 +80,8 @@ class EntreeCard extends React.Component {
         handleIncrement={this.handleIncrement}
         handleDecrement={this.handleDecrement}
         side={this.side}
-        options={this.options}
+        removeoptions={this.removeoptions}
+        addoptions={this.addoptions}
         drink={this.drink}
       >
         <Modal.Header closeButton>
@@ -89,7 +99,7 @@ class EntreeCard extends React.Component {
               <div className="section">Select Sides</div>
               <Form>
                 {['Chips'].map(side => (
-                  <div key={`default-${side}`} className="mb-3 choices" onClick={this.side}>
+                  <div key={`default-${side}`} className="mb-3 choices" onChange={this.side}>
                     <Form.Check
                       type='checkbox'
                       side={this.state.side}
@@ -120,13 +130,13 @@ class EntreeCard extends React.Component {
 
               <div className="section">Add Extras to {this.props.name} </div>
               <Form>
-                {['Add Bacon', 'Add Grilled Onion', 'Add Grilled Jalapenos'].map(extras => (
-                  <><div key={`default-${extras}`} className="mb-3 choices" onClick={this.options}>
+                {['Add Bacon', 'Add Grilled Onion', 'Add Grilled Jalapenos'].map(addextras => (
+                  <><div key={`${addextras}`} className="mb-3 choices" onChange={this.addoptions}>
                     <Form.Check
                       type='checkbox'
-                      options={this.state.options}
-                      id={`${extras}`}
-                      label={`${extras}`}
+                      id={`${addextras}`}
+                      label={`${addextras}`}
+
                     />
                     <div className="price">+$1.00</div>
                   </div>
@@ -136,13 +146,12 @@ class EntreeCard extends React.Component {
               </Form>
               <div className="section">Remove from {this.props.name} </div>
               <Form>
-                {['Remove Lettuce', 'Remove Tomato', 'Remove Onion'].map(extras => (
-                  <div key={`default-${extras}`} className="mb-3 choices" onClick={this.options}>
+                {['Remove Lettuce', 'Remove Tomato', 'Remove Onion'].map(removeextras => (
+                  <div key={`${removeextras}`} className="mb-3 choices" onChange={this.removeoptions}>
                     <Form.Check
                       type='checkbox'
-                      options={this.state.options}
-                      id={`${extras}`}
-                      label={`${extras}`}
+                      id={`${removeextras}`}
+                      label={`${removeextras}`}
                     />
                   </div>
                 ))}
