@@ -67,7 +67,12 @@ module.exports = function (app) {
   
     });
   });
-
+//
+  app.get("/api/orders", function (req, res) {
+    db.Checkout.findAll({}).then(function (dbExamples) {
+      res.json(dbExamples);
+    });
+  });
 
   app.post("/api/items", function (req, res) {
     
